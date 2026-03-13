@@ -1,39 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
+
 <head>
-<title>Undangan Pernikahan</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Undangan Pernikahan</title>
 
 <style>
 
 body{
-font-family: Arial;
-background:#f7f3f3;
+margin:0;
+font-family: 'Segoe UI', sans-serif;
+background:#fdf6f6;
 text-align:center;
-padding:20px;
+}
+
+.cover{
+height:100vh;
+background:linear-gradient(135deg,#d4a5a5,#f6d6d6);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+color:white;
+}
+
+.cover h1{
+font-size:40px;
+margin:10px;
+}
+
+.btn{
+margin-top:20px;
+padding:12px 25px;
+background:white;
+color:#b76e79;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.section{
+padding:50px 20px;
 }
 
 .card{
 background:white;
 padding:30px;
-border-radius:12px;
-box-shadow:0 0 15px rgba(0,0,0,0.1);
+border-radius:15px;
 max-width:500px;
 margin:auto;
+box-shadow:0 0 15px rgba(0,0,0,0.1);
 }
 
-h1{
+.nama{
+font-size:32px;
 color:#b76e79;
+margin:10px;
 }
 
-.button{
-display:inline-block;
+.countdown{
+font-size:20px;
 margin-top:15px;
-padding:10px 20px;
-background:#b76e79;
-color:white;
-text-decoration:none;
-border-radius:8px;
+}
+
+.map{
+margin-top:20px;
 }
 
 </style>
@@ -42,24 +75,70 @@ border-radius:8px;
 
 <body>
 
-<div class="card">
+<!-- COVER -->
+
+<div class="cover">
 
 <h2>The Wedding Of</h2>
 
 <h1>Teguh & Pasangan</h1>
+
+<a href="#undangan" class="btn">Buka Undangan</a>
+
+</div>
+
+<!-- UNDANGAN -->
+
+<div class="section" id="undangan">
+
+<div class="card">
+
+<h2>Assalamu'alaikum</h2>
+
+<p>Dengan hormat kami mengundang Anda untuk hadir di pernikahan kami</p>
+
+<div class="nama">Teguh</div>
+<p>&</p>
+<div class="nama">Pasangan</div>
 
 <p>Sabtu, 12 Desember 2026</p>
 
 <p>Akad : 09.00 WIB</p>
 <p>Resepsi : 11.00 WIB</p>
 
-<p>Lokasi Acara :</p>
+<div class="countdown" id="countdown"></div>
 
-<a class="button" href="https://maps.google.com">
+<div class="map">
+
+<a class="btn" href="https://maps.google.com" target="_blank">
 Lihat Lokasi
 </a>
 
 </div>
+
+</div>
+
+</div>
+
+<script>
+
+var weddingDate = new Date("Dec 12, 2026 09:00:00").getTime();
+
+var x = setInterval(function(){
+
+var now = new Date().getTime();
+var distance = weddingDate - now;
+
+var days = Math.floor(distance / (1000*60*60*24));
+var hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+var minutes = Math.floor((distance % (1000*60*60))/(1000*60));
+
+document.getElementById("countdown").innerHTML =
+"Hari Bahagia dalam: " + days + " hari " + hours + " jam " + minutes + " menit";
+
+},1000);
+
+</script>
 
 </body>
 </html>
