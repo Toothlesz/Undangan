@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="id">
+  <audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+  </audio>
+  
+  <h3>Kepada Yth.</h3>
+  <h2 id="guest"></h2>
 
 <head>
 <meta charset="UTF-8">
@@ -87,6 +93,16 @@ margin-top:20px;
 
 </div>
 
+<div class="section">
+
+<h2>Galeri</h2>
+
+<img src="Foto1.jpg" width="250">
+<img src="Foto2.jpg" width="250">
+<img src="Foto3.jpg" width="250">
+
+</div>
+
 <!-- UNDANGAN -->
 
 <div class="section" id="undangan">
@@ -110,13 +126,23 @@ margin-top:20px;
 
 <div class="map">
 
-<a class="btn" href="https://maps.google.com" target="_blank">
-Lihat Lokasi
+<a href="https://maps.google.com/?q=-1.6044599833061122, 103.60094802919603">
+Lihat Lokasi Acara
 </a>
 
 </div>
 
 </div>
+
+</div>
+  <div class="section">
+  
+  <h2>Ucapan & Doa</h2>
+  
+  <input type="text" placeholder="Nama"><br><br>
+  <textarea placeholder="Tulis ucapan..."></textarea><br><br>
+  
+  <button>Kirim</button>
 
 </div>
 
@@ -139,6 +165,18 @@ document.getElementById("countdown").innerHTML =
 },1000);
 
 </script>
+  <script>
 
+const urlParams = new URLSearchParams(window.location.search);
+const nama = urlParams.get('to');
+
+if(nama){
+document.getElementById("guest").innerHTML = nama;
+}else{
+document.getElementById("guest").innerHTML = "Tamu Undangan";
+}
+
+</script>
 </body>
 </html>
+
